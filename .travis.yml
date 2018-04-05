@@ -1,13 +1,5 @@
-language: python
-
-python:
-  - "3.6"
-
-sudo: enabled
-
 services:
   - docker
-
 
 install: true
 
@@ -18,11 +10,9 @@ before_script:
 
 script:
   - cd ~/pyide
-  - python --version
   - docker stack deploy --prune -c build/docker-compose.yml PYIDE
   - ./test/run-test.sh all
 
 after_success: true
-#  - coveralls
 
 after_failure: true
