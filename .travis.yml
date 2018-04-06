@@ -16,6 +16,7 @@ script:
   - ./test/run-test.sh all
   - ./test/run-test.sh cov
 
-after_success: true
+after_success: 
+    - coveralls --data_file=tmp/.coverage
 
 after_failure: true
