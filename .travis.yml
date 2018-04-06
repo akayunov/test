@@ -9,6 +9,7 @@ before_script:
   - git clone https://github.com/akayunov/pyide.git
 
 
+
 script:
   - cd ~/pyide
   - docker stack deploy --prune -c build/docker-compose.yml PYIDE
