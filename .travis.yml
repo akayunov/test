@@ -12,6 +12,7 @@ before_script:
 
 script:
   - cd ~/pyide
+  - sleep 50
   - ./test/run-test.sh all push
   - docker service ls
   - docker ps -a
