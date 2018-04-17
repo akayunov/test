@@ -12,7 +12,7 @@ before_script:
 
   - git clone https://github.com/akayunov/pyide.git
 
-  - mkdir tmp
+  - mkdir ~/pyide/tmp
 
 script:
   - cd ~/pyide
