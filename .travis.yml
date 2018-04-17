@@ -5,17 +5,19 @@ install: true
 
 before_script:
   - docker swarm init
+  - docker pull registry.hub.docker.com/akayunov/pyide:latest
+  - docker pull registry.hub.docker.com/akayunov/pyide-test:latest
   - cd
   - git clone https://github.com/akayunov/pyide.git
 
-
 script:
   - cd ~/pyide
-  - docker stack deploy --prune -c build/docker-compose.yml PYIDE
-  - ./test/run-test.sh all
-  - ./test/run-test.sh cov
+  - ./test/run-test.sh all push
+  - docker service ls
+  - docker ps -a
+  - docker container ls -a
 
-after_success: 
-    - coveralls --data_file=tmp/.coverage
+after_success: true
 
 after_failure: true
+
